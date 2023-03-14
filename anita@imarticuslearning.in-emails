@@ -1,0 +1,1389 @@
+vered-To: nikhil.chauhan9916@gmail.com
+Received: by 2002:a05:6214:4948:b0:579:8995:d78d with SMTP id pe8csp1178356qvb;
+        Sat, 4 Mar 2023 02:29:23 -0800 (PST)
+X-Google-Smtp-Source: AK7set94ehrr3wGS1+y/pLyftJXaXvrYJkKQJZuhMn12RoWsB0Zs04VBVLN2CmTRTocR9b3V0IrC
+X-Received: by 2002:a05:6214:2264:b0:56e:b124:156e with SMTP id gs4-20020a056214226400b0056eb124156emr8371320qvb.10.1677925763472;
+        Sat, 04 Mar 2023 02:29:23 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1677925763; cv=none;
+        d=google.com; s=arc-20160816;
+        b=r1puwoVprKdHN6bOiOe0+SxSaA6UnWQZ0LGM0yMOrfQ4MrZJNtdTRgGPTcN3pUUWLh
+         8L3wZLcarBTGwx0e3whFpUVBEsRQuXfe5ara5lcnBcceymXubXCatVGkE1f4U5gOexya
+         kW+XBliLWRit0yHxceU1bx4Hp5NYovvCYP2sV0atq3WoCxSz+5pXnZBvRqrutyhOO9Lo
+         jk2izamY4pOYvBcrH82VolwPuKWMOrPpmuCROjHD0jryDya+n4NmVm7Sh5k3hQ9pVeaU
+         E1lESYtsr7VOeftOnbJGokRmzbPwEb/pI3tMiO3PNO3DKrRDYT9gGdaeLsuyzoTdIYmh
+         4hog==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=feedback-id:mime-version:list-unsubscribe:message-id:subject
+         :reply-to:from:to:date:dkim-signature:dkim-signature;
+        bh=DegB+IaOJBRRRMHkeME123CEGXZbA6UP1vP+kNfkFU8=;
+        b=yuqDAlYGJACVPLGTzltoHj6nJv2p2Zxx/2m92Cyx+Xr/rOJ8FJOivV6j+MgyqVF65x
+         ELp+7J2MnHz/FDYS74hx8SihaVuhBTcKypfAtiuWVGln1ND6l7dxBJlGjE4KzLNr36nN
+         KMe6Wg1k8dwiixAPjjPSzbuB3cpG/3H5QI1m/UZ3JGqi15fvj5dGjBTsPYLks/wNNzhd
+         Ve4Hfvtdjvp6a8+yoCuFkuG6bNkEkkGXgcWtxs0CdWaoAkhtxZUMJSBC/lLOl41gCN9K
+         oxufsA1ewKvLdRmRmCw4+zbqQzSAdh7MUZSoPcYaP7Jj1TInexOJUgJo2zUzPoykskBT
+         JZMA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@imarticuslearning.in header.s=m5mh3obwxabzhlrwjykznclejudlpepn header.b=IMBTrrEu;
+       dkim=pass header.i=@amazonses.com header.s=6gbrjpgwjskckoa6a5zn6fwqkn67xbtw header.b=lJYEgybJ;
+       spf=pass (google.com: domain of 01000186ac2b4502-0e86fd57-0654-402b-a397-755350f0f2e9-000000@amazonses.com designates 54.240.8.28 as permitted sender) smtp.mailfrom=01000186ac2b4502-0e86fd57-0654-402b-a397-755350f0f2e9-000000@amazonses.com
+Return-Path: <01000186ac2b4502-0e86fd57-0654-402b-a397-755350f0f2e9-000000@amazonses.com>
+Received: from a8-28.smtp-out.amazonses.com (a8-28.smtp-out.amazonses.com. [54.240.8.28])
+        by mx.google.com with ESMTPS id q19-20020a0ce213000000b005722e511df1si3239532qvl.194.2023.03.04.02.29.22
+        for <nikhil.chauhan9916@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Sat, 04 Mar 2023 02:29:23 -0800 (PST)
+Received-SPF: pass (google.com: domain of 01000186ac2b4502-0e86fd57-0654-402b-a397-755350f0f2e9-000000@amazonses.com designates 54.240.8.28 as permitted sender) client-ip=54.240.8.28;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@imarticuslearning.in header.s=m5mh3obwxabzhlrwjykznclejudlpepn header.b=IMBTrrEu;
+       dkim=pass header.i=@amazonses.com header.s=6gbrjpgwjskckoa6a5zn6fwqkn67xbtw header.b=lJYEgybJ;
+       spf=pass (google.com: domain of 01000186ac2b4502-0e86fd57-0654-402b-a397-755350f0f2e9-000000@amazonses.com designates 54.240.8.28 as permitted sender) smtp.mailfrom=01000186ac2b4502-0e86fd57-0654-402b-a397-755350f0f2e9-000000@amazonses.com
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=m5mh3obwxabzhlrwjykznclejudlpepn; d=imarticuslearning.in;
+	t=1677925762;
+	h=Date:To:From:Reply-To:Subject:Message-ID:List-Unsubscribe:MIME-Version:Content-Type;
+	bh=cUBCSrlCHZYJ/rdGgJwn6PmeaDBN/kF/mPDUUS9ZM8E=;
+	b=IMBTrrEuGkuAsYIxBxVuupZbflsHE6Oj6qX+LpmCsZg6t4jQ36KyH4106uXhiTLb
+	P88MT4X8f4n519sYNxLXc+1b8S4a9/uX4mmA2UgBkhjz1EFp5RY/FC71eSNrh9y66zs
+	nJZg6xwdW/k89dqXLzPOFmDnP+GKxI1VPriwhSmrq/Z2HHeeFLH19anrTpXIQlldmAo
+	PoBdFRLKg37mRmYHx+2YNfK/D1jMGXfuMjI+QCvMuLnzHKFOIqCQueFOtfp1jzy2rdF
+	PistYClw+3x/Qg4XGwm6MFBBhUoISHmj2AUodiUn7xzfdjAMzyx0xTGCddCbqJkCUDN
+	UDyKYDWzkQ==
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=6gbrjpgwjskckoa6a5zn6fwqkn67xbtw; d=amazonses.com; t=1677925762;
+	h=Date:To:From:Reply-To:Subject:Message-ID:List-Unsubscribe:MIME-Version:Content-Type:Feedback-ID;
+	bh=cUBCSrlCHZYJ/rdGgJwn6PmeaDBN/kF/mPDUUS9ZM8E=;
+	b=lJYEgybJIR0dlWJ9ZEMftiY9CV8gh8u1ieBbY57VnbGCjxXo/C459R9n+ap9434Z
+	WI5GP71dDPCr1ncoEV3qJ8e8XSz2qLzoI2vZ3UyepDLJSXo+9cJ6VxJI6i/XMbhQOJ0
+	aKo0dvrTfEj+LoCLw4gMZnO7tnLtDCYBodQ2PVgs=
+Date: Sat, 4 Mar 2023 10:29:22 +0000
+To: A <nikhil.chauhan9916@gmail.com>
+From: Anita <anita@imarticuslearning.in>
+Reply-To: Anita <adarsh.takrani@imarticus.com>
+Subject: A, dreaming about working as a data scientist?
+Message-ID: <01000186ac2b4502-0e86fd57-0654-402b-a397-755350f0f2e9-000000@email.amazonses.com>
+X-Mailer: Sendy (https://sendy.co)
+List-Unsubscribe: <http://sendy.eckmarket.in/unsubscribe/ZNwDtwIl4f4QIg40cRuS9VO8h6COopMNzMYzwSZRAOo/BSM763409cgLNCzjChIr3C0g/z6w1WlKxJZ1j4Kz89211RmtQ>
+MIME-Version: 1.0
+Content-Type: text/html; charset=UTF-8
+Feedback-ID: 1.us-east-1.JgxW6J5AHJRATaJm3ihEvEzU9Uhy8jBxfYwI7WkBW1k=:AmazonSES
+X-SES-Outgoing: 2023.03.04-54.240.8.28
+
+<!doctype html>
+<html>
+<head><meta charset="utf-8">
+	<title>PGA Weekday Mailer</title>
+</head>
+<body data-gr-ext-installed="" data-new-gr-c-s-check-loaded="14.1098.0">
+<table align="center" bgcolor="#dcf3f1" border="0" cellpadding="0" cellspacing="0" width="100%">
+	<tbody>
+		<tr>
+			<td><!--Main Table Start Here-->
+			<table align="center" bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" width="700">
+				<tbody><!--logo start-->
+					<tr>
+						<td>
+						<table align="center" border="0" width="650">
+							<tbody>
+								<tr>
+									<td align="left"><img alt="" src="https://f2.leadsquaredcdn.com/t/t20151211173640/content/common/images/Copy%20(1)%20of%20imarticus-logo.png" /></td>
+									<td align="right"><img alt="" src="https://f2.leadsquaredcdn.com/t/t20151211173640/content/common/images/kpmg-logo.png" /></td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+					<!--logo End--><!--Banner start-->
+					<tr>
+						<td style="padding: 10px; ">
+						<table align="center" bgcolor="#ffffff" border="0" height="650" style="border-radius: 20px; border: solid 2px #06645c" width="623">
+							<tbody>
+								<tr>
+									<td align="center" style="font-family:  Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif'">
+									<p style="color: #06645c; padding: 0px 0px 0px 0px">Postgraduate Program in</p>
+
+									<h1 style="color: #06645c; padding: 0px; line-height: 40px; font-family:  Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif'">Data Science and Analytics</h1>
+
+									<h2 style="font-weight: normal; color: #06645c; padding: 0px; line-height: 15px; font-family:  Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif' ">Lead the data-driven world as a data scientist</h2>
+									</td>
+								</tr>
+								<tr>
+									<td align="center"><img alt="" height="322" src="https://f2.leadsquaredcdn.com/t/t20151211173640/content/common/images/Banner_img_weekday.png" width="356" /></td>
+								</tr>
+								<tr>
+									<td align="center" style="padding: 20px"><a href="http://sendy.eckmarket.in/l/hbaH763M17D9eDpzkr4lVzjg/fPt5hdbICi2LQn3afBzgAA/z6w1WlKxJZ1j4Kz89211RmtQ" target="_blank"><img alt="" src="https://f2.leadsquaredcdn.com/t/t20151211173640/content/common/images/Copy%20(1)%20of%20Apply%20Now.png" style="width: 177px; height: 38px;" /></a></td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+					<!--Banner End-->
+					<tr>
+						<td align="center" border="0">
+						<p style="font-family: trebuchet MS, Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif'; padding: 0px 40px 0px 40px; line-height: 30px;">Develop the skills that leading data scientists possess with our award-winning postgraduate data science program. Create data-driven models for your organisation by mastering <strong><i>Python, SQL, Tableau, and Artificial Intelligence.</i></strong></p>
+						</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>
+						<table align="center" bgcolor="#06645c" border="0" cellpadding="0" cellspacing="0" height="600" style="border-radius: 20px;" width="623">
+							<tbody>
+								<tr>
+									<td align="center" style="font-family: trebuchet MS, Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif' padding:0px">
+									<h1 style="color: rgba(255,255,255,1.00); line-height: 40px; margin:0px; padding: 10px 10px 10px 10px; ">Begin Your Data Science Career With The Best Data Science Certification</h1>
+									<br />
+									<img alt="" height="362" src="https://f2.leadsquaredcdn.com/t/t20151211173640/content/common/images/PGA-Certificate-weekday.png" width="513" /></td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+					<tr>
+						<td align="center">&nbsp;
+						<h2 style="color: #06645c; padding: 0px; line-height: 15px; font-family: trebuchet MS, Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif' ">Why Join This Program</h2>
+						</td>
+					</tr>
+					<tr>
+						<td align="center">
+						<table border="0" width="623">
+							<tbody>
+								<tr>
+									<td height="106"><img alt="" height="81" src="https://landingpagecontentv2.s3.amazonaws.com/t/t20151211173640/content/common/images/job_Guarantee.png" width="81" /></td>
+									<td>
+									<p style="font-family:  Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif'; padding: 0px 40px 0px 40px; "><strong style="color: #06645c">Job Guarantee Program </strong><br />
+									Gain assured interviews and land a job at one of <strong>400+ hiring</strong> partner organisations.</p>
+									</td>
+								</tr>
+								<tr>
+									<td height="106"><img alt="" height="81" src="https://landingpagecontentv2.s3.amazonaws.com/t/t20151211173640/content/common/images/300.png" width="81" /></td>
+									<td>
+									<p style="font-family: Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif'; padding: 0px 40px 0px 40px;"><strong style="color: #06645c">300+ Flexible Learning Hours</strong><br />
+									Study on weekends and become an AI and machine learning expert</p>
+									</td>
+								</tr>
+								<tr>
+									<td height="106"><img alt="" height="81" src="https://landingpagecontentv2.s3.amazonaws.com/t/t20151211173640/content/common/images/Specialisation.png" width="81" /></td>
+									<td>
+									<p style="font-family:  Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif'; padding: 0px 40px 0px 40px;"><strong style="color: #06645c">Specialisation Tracks</strong><br />
+									Choose a specialisation based on your strengths and accelerate your journey to success</p>
+									</td>
+								</tr>
+								<tr>
+									<td height="106"><img alt="" height="81" src="https://landingpagecontentv2.s3.amazonaws.com/t/t20151211173640/content/common/images/Hackathons.png" width="81" /></td>
+									<td>
+									<p style="font-family:  Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif'; padding: 0px 40px 0px 40px;"><strong style="color: #06645c">Hackathons And 25+ Real-World Projects</strong><br />
+									Gain access to your course on the LMS, get assessed in real-time and work on industry-specific projects.</p>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td align="center"><a href="http://sendy.eckmarket.in/l/hbaH763M17D9eDpzkr4lVzjg/fPt5hdbICi2LQn3afBzgAA/z6w1WlKxJZ1j4Kz89211RmtQ" target="_blank"><img alt="" src="https://f2.leadsquaredcdn.com/t/t20151211173640/content/common/images/Register%20Now.png" /></a></td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>
+						<table align="center" border="0" cellpadding="0" cellspacing="0" width="623">
+							<tbody>
+								<tr>
+									<td align="center" width="221">
+									<h2 style="font-family: trebuchet MS, Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif'; color: #06645c">Data Scientist</h2>
+									<img alt="" height="107" src="https://f2.leadsquaredcdn.com/t/t20151211173640/content/common/images/Salary.png" width="107" />
+									<h3 style="font-family: trebuchet MS, Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif'; color: #06645c">Average Annual Salary</h3>
+
+									<h1 style="font-family: trebuchet MS, Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif'; color: #06645c">INR 10,00,000</h1>
+
+									<p style="color:#06645c; font-family: Poppins, Roboto; ">Source: Glassdoor</p>
+									</td>
+									<td bgcolor="#777777" width="1">&nbsp;</td>
+									<td align="center" width="221">
+									<h2 style="font-family: trebuchet MS, Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif'; color:#06645c">Data Science Industry</h2>
+									<img alt="" height="107" src="https://f2.leadsquaredcdn.com/t/t20151211173640/content/common/images/Growth.png" width="107" />
+									<h3 style="font-family: trebuchet MS, Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif'; color: #06645c">Compound Annual Growth Rate</h3>
+
+									<h1 style="font-family: trebuchet MS, Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif'; color: #06645c; padding: 0px; margin: 0px">26.9%</h1>
+									<strong style="color:#06645c ">(2020-2027)</strong>
+
+									<p style="color:#06645c;font-family: Poppins, Roboto ">Source: Grandviewresearch</p>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>
+						<table align="center" bgcolor="#06645c" border="0" cellpadding="0" cellspacing="0" height="500" width="700">
+							<tbody>
+								<tr>
+									<td align="center" colspan="2" style="font-family: trebuchet MS, Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif' padding:0px;">
+									<h1 style="color: rgba(255,255,255,1.00); line-height: 40px; margin:0px; padding: 20px 10px 00px 10px; align-content: center;">Achieve Success In Data Science<br />
+									With Leaders In Analytics</h1>
+									</td>
+								</tr>
+								<tr>
+									<td align="center"><img alt="" src="https://f2.leadsquaredcdn.com/t/t20151211173640/content/common/images/Best%20Education%20Brands%20-%20Logo%20-%205th%20Edition.png" /><br />
+									<br />
+									<strong style="font-weight: 500; color: #00ffc1; font-family: Poppins, Roboto">Best Education Brand<br />
+									in Analytics</strong></td>
+									<td align="center"><img alt="" src="https://f2.leadsquaredcdn.com/t/t20151211173640/content/common/images/Indian%20Education.png" /><br />
+									<br />
+									<strong style="font-weight: 500; color: #00ffc1;font-family: Poppins, Roboto">Best Education Brand<br />
+									in Analytics</strong></td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>
+						<table align="center" border="0" style=" border: 1px; border-radius: 5px; padding: : 10px; " width="623">
+							<tbody>
+								<tr>
+									<td align="center">
+									<h2 style="color: #06645c; padding: 0px; line-height: 15px; font-family: trebuchet MS, Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif' ">Our Alumni Work At</h2>
+									</td>
+								</tr>
+								<tr>
+									<td align="center"><img alt="" src="https://f2.leadsquaredcdn.com/t/t20151211173640/content/common/images/Copy%20(1)%20of%20Alumni.png" /></td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td align="center"><a href="http://sendy.eckmarket.in/l/hbaH763M17D9eDpzkr4lVzjg/fPt5hdbICi2LQn3afBzgAA/z6w1WlKxJZ1j4Kz89211RmtQ" target="_blank"><img alt="" src="https://f2.leadsquaredcdn.com/t/t20151211173640/content/common/images/Enrol%20Now.png" style="width: 164px; height: 38px;" /></a><br />
+						&nbsp;</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>
+						<table align="center" bgcolor="#c4c4c4 " border="0" cellpadding="0" cellspacing="0" height="100" width="700">
+							<tbody>
+								<tr>
+									<td align="center" style="font-family: trebuchet MS, Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif'">
+									<p style="font-weight:500; font-size: 25px">We have an 80% Placement Success Rate</p>
+									</td>
+								</tr>
+								<tr>
+									<td align="center" style="padding: 10px"><a href="http://sendy.eckmarket.in/l/hbaH763M17D9eDpzkr4lVzjg/wIa892J7DOsDf1FcBNxU8UHQ/z6w1WlKxJZ1j4Kz89211RmtQ" target="_blank"><img alt="" src="https://f2.leadsquaredcdn.com/t/t20151211173640/content/common/images/Download%20Career%20Report.png" style="width: 300px; height: 44px;" /></a></td>
+								</tr>
+								<tr>
+									<td align="center" bgcolor="#06645c">
+									<p style="font-family: trebuchet MS, Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif';   border-radius: 5px; margin: 5px; color: rgba(247,244,244,1.00)"><a href="http://sendy.eckmarket.in/l/hbaH763M17D9eDpzkr4lVzjg/Q8AMpPnn393xwvFEp7RxvA/z6w1WlKxJZ1j4Kz89211RmtQ" style="text-decoration: none; color: rgba(255,255,255,1.00);">www.imarticus.org</a></p>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<!--Main Table End Here--></td>
+		</tr>
+	</tbody>
+</table>
+
+<hr />
+<center><span style="font-size:10px;">You are getting this mail because you have subscribed to receive these emails.<br />
+Check this mail-in <a href="http://sendy.eckmarket.in/w/hbaH763M17D9eDpzkr4lVzjg/BSM763409cgLNCzjChIr3C0g/z6w1WlKxJZ1j4Kz89211RmtQ" >View web version</a>, If you don&rsquo;t wish to receive these emails, unsubscribe <a href="http://sendy.eckmarket.in/unsubscribe/ZNwDtwIl4f4QIg40cRuS9VO8h6COopMNzMYzwSZRAOo/BSM763409cgLNCzjChIr3C0g/z6w1WlKxJZ1j4Kz89211RmtQ" >here.</a></span></center>
+<grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></body>
+</html>
+<img src="http://sendy.eckmarket.in/t/z6w1WlKxJZ1j4Kz89211RmtQ/hbaH763M17D9eDpzkr4lVzjg" alt="" style="width:1px;height:1px;"/>
+####################vered-To: nikhil.chauhan9916@gmail.com
+Received: by 2002:a05:6214:4948:b0:579:8995:d78d with SMTP id pe8csp1134453qvb;
+        Sat, 4 Mar 2023 00:33:33 -0800 (PST)
+X-Google-Smtp-Source: AK7set+B+NAXJs79vmXRZ7HQMVp4YYiu61H+qhRIKG+IMUa1KYZSyKZolN7uZu0y+oAtlsLjLdoq
+X-Received: by 2002:a05:622a:8:b0:3bf:c5ce:127a with SMTP id x8-20020a05622a000800b003bfc5ce127amr8080645qtw.4.1677918812912;
+        Sat, 04 Mar 2023 00:33:32 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1677918812; cv=none;
+        d=google.com; s=arc-20160816;
+        b=0uWBLuxI6uA78jPzxb3YnWWk/mY01hlJJU8EoFNzSa5Uyabu9z+47JZPwp+o+O9F+N
+         hyjd2IMyPOG4Ooavd08k/DNAp1KEk9artEVZo1VRgxntBYWsDr4jZXcW8/PHXp+BOC7n
+         iOFE5dTgXIMMYPiPF6auxy2NaI05SsgL97t0yebF/VPNdMBN7kmYVubaFySGalEPqJrI
+         MIyDvaP1F/8SaqxN1Mmw6n+DypVeGfQj/+8uVPb5fSU4zm3XAgynL6twoz7Z95ad6PYv
+         ox67eKAHuAXfoO6nbZMvqNT7Vk77ZnS+2JW/ILKdH/FxBYBK8UCTctW3yajzj6ozhYMB
+         zwYw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=feedback-id:mime-version:list-unsubscribe:message-id:subject
+         :reply-to:from:to:date:dkim-signature:dkim-signature;
+        bh=t38/aiVe+iqQszfAnEN9zWKZ+xeJjo2xENuD/+ORMRU=;
+        b=bLsDuNtxJm/ooefpk+CB46cJzPUY1zhjXkzJDrt8+Vqz98PF6MlWOhCuTnUycjffR3
+         jYvhOBXrMtM4HU1DSzh39qfFpAln3NduoXKZk0qiWX0zh1FhwUhmxyQ9l8cP08yt0qB/
+         rPIa1aLgFegVhC8NzuWfTU9AxMatmXooYj+hU9pwVkvNrRGxjhjUl+nXeyX87Vw+Ck3U
+         9zebB7FyBmcEUXXjq/nIW0M/VISkXzPomiOA80eUXloCvGxAcnZJThqHIA4oZ5TOOJMp
+         4jq7HCRq6YKyXB8UtcXJrPhCXJFDmkKMHKqI/Zf+25KS/kNfPrrdO3Uo+jdo6+9vQ+vQ
+         XSEg==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@imarticuslearning.in header.s=m5mh3obwxabzhlrwjykznclejudlpepn header.b=VMK9qtAd;
+       dkim=pass header.i=@amazonses.com header.s=6gbrjpgwjskckoa6a5zn6fwqkn67xbtw header.b="IDI/Ac7T";
+       spf=pass (google.com: domain of 01000186abc139ae-db0dd1e1-05a0-4580-aaaa-e6db9f2b99eb-000000@amazonses.com designates 54.240.11.60 as permitted sender) smtp.mailfrom=01000186abc139ae-db0dd1e1-05a0-4580-aaaa-e6db9f2b99eb-000000@amazonses.com
+Return-Path: <01000186abc139ae-db0dd1e1-05a0-4580-aaaa-e6db9f2b99eb-000000@amazonses.com>
+Received: from a11-60.smtp-out.amazonses.com (a11-60.smtp-out.amazonses.com. [54.240.11.60])
+        by mx.google.com with ESMTPS id d10-20020ac85aca000000b003b86a41c337si3458914qtd.597.2023.03.04.00.33.32
+        for <nikhil.chauhan9916@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Sat, 04 Mar 2023 00:33:32 -0800 (PST)
+Received-SPF: pass (google.com: domain of 01000186abc139ae-db0dd1e1-05a0-4580-aaaa-e6db9f2b99eb-000000@amazonses.com designates 54.240.11.60 as permitted sender) client-ip=54.240.11.60;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@imarticuslearning.in header.s=m5mh3obwxabzhlrwjykznclejudlpepn header.b=VMK9qtAd;
+       dkim=pass header.i=@amazonses.com header.s=6gbrjpgwjskckoa6a5zn6fwqkn67xbtw header.b="IDI/Ac7T";
+       spf=pass (google.com: domain of 01000186abc139ae-db0dd1e1-05a0-4580-aaaa-e6db9f2b99eb-000000@amazonses.com designates 54.240.11.60 as permitted sender) smtp.mailfrom=01000186abc139ae-db0dd1e1-05a0-4580-aaaa-e6db9f2b99eb-000000@amazonses.com
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=m5mh3obwxabzhlrwjykznclejudlpepn; d=imarticuslearning.in;
+	t=1677918812;
+	h=Date:To:From:Reply-To:Subject:Message-ID:List-Unsubscribe:MIME-Version:Content-Type;
+	bh=Tk88HDTt7BYa+FKkq72BP5A8x4IcsLuV1l1u2ntL5Gw=;
+	b=VMK9qtAdu91yuROQchXT9kXdWinxBQgKxNh7eaYDptmYxEzzc58yF4se1CjTU0fg
+	DmhZUKLhBZw48GrEp7DtsJOcgviSerIVFA4rqzHj5mbuVTFud5VRFVTsduMB9/1q5HE
+	PvwnZ7SLzwUFsVrmF2XzVEM7iJ3WS1Y8UStdfqk7Xq6DiWUsa1oGcyko65/U+Ac3iQK
+	7cwSd9G/jlATlkExKKriu/nVsY3ijmtk9mwX5zWA0/himt73JHlPnBuqxSXsrUC1v4p
+	N4+0IxZOYuTZvjD33btSgoTlJ8OSkB7qntcyXxD2gZdAT7m1THJgAiRA7gG1mUsJsri
+	SQ4hIGKCBA==
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=6gbrjpgwjskckoa6a5zn6fwqkn67xbtw; d=amazonses.com; t=1677918812;
+	h=Date:To:From:Reply-To:Subject:Message-ID:List-Unsubscribe:MIME-Version:Content-Type:Feedback-ID;
+	bh=Tk88HDTt7BYa+FKkq72BP5A8x4IcsLuV1l1u2ntL5Gw=;
+	b=IDI/Ac7TdQalf+EEc/TMyMMspdxDWlpm/VDGCUSsCkvO1f36pcy0DZyT/TFGkP2W
+	Oiuv9VxQkCpL8b2pu0RupfcrfzudOPgi2HGHqXCu9P8QtsLjypI/dfwvlJBzFOuHCPH
+	XD3GUJxpHniWwz5JDcZ7vi1X7FJI6jYzeIr6Bi18=
+Date: Sat, 4 Mar 2023 08:33:32 +0000
+To: Nikhil <nikhil.chauhan9916@gmail.com>
+From: Anita <anita@imarticuslearning.in>
+Reply-To: Anita <adarsh.takrani@imarticus.com>
+Subject: Become a data analyst and get placed in Deloitte, Goldman Sachs, Wipro, Infosys
+Message-ID: <01000186abc139ae-db0dd1e1-05a0-4580-aaaa-e6db9f2b99eb-000000@email.amazonses.com>
+X-Mailer: Sendy (https://sendy.co)
+List-Unsubscribe: <http://sendy.eckmarket.in/unsubscribe/ZNwDtwIl4f4QIg40cRuS9VO8h6COopMNzMYzwSZRAOo/kfQnh6nIDntDX7a5qgwwYg/3G4l3b1xTSxieraEiYf8cQ>
+MIME-Version: 1.0
+Content-Type: text/html; charset=UTF-8
+Feedback-ID: 1.us-east-1.JgxW6J5AHJRATaJm3ihEvEzU9Uhy8jBxfYwI7WkBW1k=:AmazonSES
+X-SES-Outgoing: 2023.03.04-54.240.11.60
+
+<!doctype html>
+<html>
+<head><meta charset="utf-8">
+	<title>PGA Weekday Mailer</title>
+</head>
+<body data-gr-ext-installed="" data-new-gr-c-s-check-loaded="14.1098.0">
+<table align="center" bgcolor="#dcf3f1" border="0" cellpadding="0" cellspacing="0" width="100%">
+	<tbody>
+		<tr>
+			<td><!--Main Table Start Here-->
+			<table align="center" bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" width="700">
+				<tbody><!--logo start-->
+					<tr>
+						<td>
+						<table align="center" border="0" width="650">
+							<tbody>
+								<tr>
+									<td align="left"><img alt="" src="https://f2.leadsquaredcdn.com/t/t20151211173640/content/common/images/Copy%20(1)%20of%20imarticus-logo.png" /></td>
+									<td align="right"><img alt="" src="https://f2.leadsquaredcdn.com/t/t20151211173640/content/common/images/kpmg-logo.png" /></td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+					<!--logo End--><!--Banner start-->
+					<tr>
+						<td style="padding: 10px; ">
+						<table align="center" bgcolor="#ffffff" border="0" height="650" style="border-radius: 20px; border: solid 2px #06645c" width="623">
+							<tbody>
+								<tr>
+									<td align="center" style="font-family:  Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif'">
+									<p style="color: #06645c; padding: 0px 0px 0px 0px">Postgraduate Program in</p>
+
+									<h1 style="color: #06645c; padding: 0px; line-height: 40px; font-family:  Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif'">Data Science and Analytics</h1>
+
+									<h2 style="font-weight: normal; color: #06645c; padding: 0px; line-height: 15px; font-family:  Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif' ">Lead the data-driven world as a data scientist</h2>
+									</td>
+								</tr>
+								<tr>
+									<td align="center"><img alt="" height="322" src="https://f2.leadsquaredcdn.com/t/t20151211173640/content/common/images/Banner_img_weekday.png" width="356" /></td>
+								</tr>
+								<tr>
+									<td align="center" style="padding: 20px"><a href="http://sendy.eckmarket.in/l/xhAwliboyrKZi892fLyTwliA/BJ892892SXIROzaiP4IWf6qoqg/3G4l3b1xTSxieraEiYf8cQ"><img alt="" src="https://f2.leadsquaredcdn.com/t/t20151211173640/content/common/images/Copy%20(1)%20of%20Apply%20Now.png" style="width: 177px; height: 38px;" /></a></td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+					<!--Banner End-->
+					<tr>
+						<td align="center" border="0">
+						<p style="font-family: trebuchet MS, Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif'; padding: 0px 40px 0px 40px; line-height: 30px;">Develop the skills that leading data scientists possess with our award-winning postgraduate data science program. Create data-driven models for your organisation by mastering <strong><i>Python, SQL, Tableau, and Artificial Intelligence.</i></strong></p>
+						</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>
+						<table align="center" bgcolor="#06645c" border="0" cellpadding="0" cellspacing="0" height="600" style="border-radius: 20px;" width="623">
+							<tbody>
+								<tr>
+									<td align="center" style="font-family: trebuchet MS, Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif' padding:0px">
+									<h1 style="color: rgba(255,255,255,1.00); line-height: 40px; margin:0px; padding: 10px 10px 10px 10px; ">Begin Your Data Science Career With The Best Data Science Certification</h1>
+									<br />
+									<img alt="" height="362" src="https://f2.leadsquaredcdn.com/t/t20151211173640/content/common/images/PGA-Certificate-weekday.png" width="513" /></td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+					<tr>
+						<td align="center">&nbsp;
+						<h2 style="color: #06645c; padding: 0px; line-height: 15px; font-family: trebuchet MS, Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif' ">Why Join This Program</h2>
+						</td>
+					</tr>
+					<tr>
+						<td align="center">
+						<table border="0" width="623">
+							<tbody>
+								<tr>
+									<td height="106"><img alt="" height="81" src="https://landingpagecontentv2.s3.amazonaws.com/t/t20151211173640/content/common/images/job_Guarantee.png" width="81" /></td>
+									<td>
+									<p style="font-family:  Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif'; padding: 0px 40px 0px 40px; "><strong style="color: #06645c">Job Guarantee Program </strong><br />
+									Gain assured interviews and land a job at one of <strong>400+ hiring</strong> partner organisations.</p>
+									</td>
+								</tr>
+								<tr>
+									<td height="106"><img alt="" height="81" src="https://landingpagecontentv2.s3.amazonaws.com/t/t20151211173640/content/common/images/300.png" width="81" /></td>
+									<td>
+									<p style="font-family: Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif'; padding: 0px 40px 0px 40px;"><strong style="color: #06645c">300+ Flexible Learning Hours</strong><br />
+									Study on weekends and become an AI and machine learning expert</p>
+									</td>
+								</tr>
+								<tr>
+									<td height="106"><img alt="" height="81" src="https://landingpagecontentv2.s3.amazonaws.com/t/t20151211173640/content/common/images/Specialisation.png" width="81" /></td>
+									<td>
+									<p style="font-family:  Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif'; padding: 0px 40px 0px 40px;"><strong style="color: #06645c">Specialisation Tracks</strong><br />
+									Choose a specialisation based on your strengths and accelerate your journey to success</p>
+									</td>
+								</tr>
+								<tr>
+									<td height="106"><img alt="" height="81" src="https://landingpagecontentv2.s3.amazonaws.com/t/t20151211173640/content/common/images/Hackathons.png" width="81" /></td>
+									<td>
+									<p style="font-family:  Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif'; padding: 0px 40px 0px 40px;"><strong style="color: #06645c">Hackathons And 25+ Real-World Projects</strong><br />
+									Gain access to your course on the LMS, get assessed in real-time and work on industry-specific projects.</p>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td align="center"><a href="http://sendy.eckmarket.in/l/xhAwliboyrKZi892fLyTwliA/BJ892892SXIROzaiP4IWf6qoqg/3G4l3b1xTSxieraEiYf8cQ"><img alt="" src="https://f2.leadsquaredcdn.com/t/t20151211173640/content/common/images/Register%20Now.png" /></a></td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>
+						<table align="center" border="0" cellpadding="0" cellspacing="0" width="623">
+							<tbody>
+								<tr>
+									<td align="center" width="221">
+									<h2 style="font-family: trebuchet MS, Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif'; color: #06645c">Data Scientist</h2>
+									<img alt="" height="107" src="https://f2.leadsquaredcdn.com/t/t20151211173640/content/common/images/Salary.png" width="107" />
+									<h3 style="font-family: trebuchet MS, Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif'; color: #06645c">Average Annual Salary</h3>
+
+									<h1 style="font-family: trebuchet MS, Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif'; color: #06645c">INR 10,00,000</h1>
+
+									<p style="color:#06645c; font-family: Poppins, Roboto; ">Source: Glassdoor</p>
+									</td>
+									<td bgcolor="#777777" width="1">&nbsp;</td>
+									<td align="center" width="221">
+									<h2 style="font-family: trebuchet MS, Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif'; color:#06645c">Data Science Industry</h2>
+									<img alt="" height="107" src="https://f2.leadsquaredcdn.com/t/t20151211173640/content/common/images/Growth.png" width="107" />
+									<h3 style="font-family: trebuchet MS, Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif'; color: #06645c">Compound Annual Growth Rate</h3>
+
+									<h1 style="font-family: trebuchet MS, Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif'; color: #06645c; padding: 0px; margin: 0px">26.9%</h1>
+									<strong style="color:#06645c ">(2020-2027)</strong>
+
+									<p style="color:#06645c;font-family: Poppins, Roboto ">Source: Grandviewresearch</p>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>
+						<table align="center" bgcolor="#06645c" border="0" cellpadding="0" cellspacing="0" height="500" width="700">
+							<tbody>
+								<tr>
+									<td align="center" colspan="2" style="font-family: trebuchet MS, Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif' padding:0px;">
+									<h1 style="color: rgba(255,255,255,1.00); line-height: 40px; margin:0px; padding: 20px 10px 00px 10px; align-content: center;">Achieve Success In Data Science<br />
+									With Leaders In Analytics</h1>
+									</td>
+								</tr>
+								<tr>
+									<td align="center"><img alt="" src="https://f2.leadsquaredcdn.com/t/t20151211173640/content/common/images/Best%20Education%20Brands%20-%20Logo%20-%205th%20Edition.png" /><br />
+									<br />
+									<strong style="font-weight: 500; color: #00ffc1; font-family: Poppins, Roboto">Best Education Brand<br />
+									in Analytics</strong></td>
+									<td align="center"><img alt="" src="https://f2.leadsquaredcdn.com/t/t20151211173640/content/common/images/Indian%20Education.png" /><br />
+									<br />
+									<strong style="font-weight: 500; color: #00ffc1;font-family: Poppins, Roboto">Best Education Brand<br />
+									in Analytics</strong></td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>
+						<table align="center" border="0" style=" border: 1px; border-radius: 5px; padding: : 10px; " width="623">
+							<tbody>
+								<tr>
+									<td align="center">
+									<h2 style="color: #06645c; padding: 0px; line-height: 15px; font-family: trebuchet MS, Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif' ">Our Alumni Work At</h2>
+									</td>
+								</tr>
+								<tr>
+									<td align="center"><img alt="" src="https://f2.leadsquaredcdn.com/t/t20151211173640/content/common/images/Copy%20(1)%20of%20Alumni.png" /></td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td align="center"><br />
+						<a href="http://sendy.eckmarket.in/l/xhAwliboyrKZi892fLyTwliA/BJ892892SXIROzaiP4IWf6qoqg/3G4l3b1xTSxieraEiYf8cQ"><img alt="" height="38" src="https://f2.leadsquaredcdn.com/t/t20151211173640/content/common/images/Enrol%20Now.png" width="164" /></a><br />
+						&nbsp;</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>
+						<table align="center" bgcolor="#c4c4c4 " border="0" cellpadding="0" cellspacing="0" height="100" width="700">
+							<tbody>
+								<tr>
+									<td align="center" style="font-family: trebuchet MS, Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif'">
+									<p style="font-weight:500; font-size: 25px">We have an 80% Placement Success Rate</p>
+									</td>
+								</tr>
+								<tr>
+									<td align="center" style="padding: 10px"><a href="http://sendy.eckmarket.in/l/xhAwliboyrKZi892fLyTwliA/ycdy8K1ldR8NR7eaWyDreA/3G4l3b1xTSxieraEiYf8cQ"><img alt="" height="44" src="https://f2.leadsquaredcdn.com/t/t20151211173640/content/common/images/Download%20Career%20Report.png" width="300" /></a></td>
+								</tr>
+								<tr>
+									<td align="center" bgcolor="#06645c">
+									<p style="font-family: trebuchet MS, Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif';   border-radius: 5px; margin: 5px; color: rgba(247,244,244,1.00)"><a href="http://sendy.eckmarket.in/l/xhAwliboyrKZi892fLyTwliA/pY28JVIYjyfO9H05Qei763Cw/3G4l3b1xTSxieraEiYf8cQ" style="text-decoration: none; color: rgba(255,255,255,1.00);">www.imarticus.org</a></p>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<!--Main Table End Here--></td>
+		</tr>
+	</tbody>
+</table>
+
+<hr />
+<center><span style="font-size:10px;">You are getting this mail because you have subscribed to receive these emails.<br />
+Check this mail-in <a href="http://sendy.eckmarket.in/w/xhAwliboyrKZi892fLyTwliA/kfQnh6nIDntDX7a5qgwwYg/3G4l3b1xTSxieraEiYf8cQ" >View web version</a>, If you don&rsquo;t wish to receive these emails, unsubscribe <a href="http://sendy.eckmarket.in/unsubscribe/ZNwDtwIl4f4QIg40cRuS9VO8h6COopMNzMYzwSZRAOo/kfQnh6nIDntDX7a5qgwwYg/3G4l3b1xTSxieraEiYf8cQ" >here.</a></span></center>
+<grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></body>
+</html>
+<img src="http://sendy.eckmarket.in/t/3G4l3b1xTSxieraEiYf8cQ/xhAwliboyrKZi892fLyTwliA" alt="" style="width:1px;height:1px;"/>
+####################vered-To: nikhil.chauhan9916@gmail.com
+Received: by 2002:a0c:9792:0:b0:579:8995:d78d with SMTP id l18csp78631qvd;
+        Thu, 2 Mar 2023 05:50:17 -0800 (PST)
+X-Google-Smtp-Source: AK7set/CCCRzxA4Ic4VBlUP4fLt8Crlx3MlZ8GhNNaCFTshDj8jCUJwcLxklABzZbVuqHhE8IeBw
+X-Received: by 2002:ac8:7c4e:0:b0:3bf:c431:ea6e with SMTP id o14-20020ac87c4e000000b003bfc431ea6emr17402295qtv.3.1677765017718;
+        Thu, 02 Mar 2023 05:50:17 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1677765017; cv=none;
+        d=google.com; s=arc-20160816;
+        b=KzhmROnoemaas9dyIEsPpN/DCOSaYJCpi6Mopi1EiGRVlYw1h4oKUB/kSiF4JJmJAg
+         Tu4Wol9yuZQYC06SRarXlpO5f1wE97Bh6wfMwXBw1HY7ifSFGCjBi641Zbj/VR2wrkL4
+         uQ7Qy12rPX/xctaQIIc+8igCDCtd16eUAPogrm1K0r/TPMiKTvvRt/VQrv6cq9tsl859
+         tqPCT4d+u2OzP6tfPu2oiMk6p8tPFLIk909Jw5voBJGPcj4OngIxb97/Ij/eP6e0BxRP
+         rtFHCfq6ISqOtNA2hn/vNDbd7Cpra4heswV2fZOL6s1O+Ll/zjHhGgN4SmxFRxACtB6n
+         EVjw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=feedback-id:mime-version:list-unsubscribe:message-id:subject
+         :reply-to:from:to:date:dkim-signature:dkim-signature;
+        bh=C5/eiiQBoWl3C7asuUzM5qNUpVjehjEgQc7XJGizk3s=;
+        b=HkX0pBtkCgyGadFeLy8GiJJPOPefc6Fpz6H2OB9AroqrXBOR6dBg2c78ESkazzLra/
+         V+0wF36tgfNXPH2PM1q49WaOq03VZkw7Y2lGGKCFSUp9c1y6UjP1CYtSgulAqHmnlSOk
+         e3rtTNXTdasUgEEqaPPtQKdkhCUF6pGr/uwBUVr1r0dI0y6tt9Br8A9URSbhEcOPUgLC
+         SkDlYMZzMzIz31axMbiEyeiJ2WfkHh1n1sxDn4M3d3bw37l/Mv0uUwbgmERfLJq86DUP
+         K3UkqQ30td5KARAjrKi4sFPC6Wu1HVvGfUZN9I9X7MnbnLN06qTu9YWCJZyBpNFIOZqn
+         5mrg==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@imarticuslearning.in header.s=m5mh3obwxabzhlrwjykznclejudlpepn header.b=QeHKx1Mu;
+       dkim=pass header.i=@amazonses.com header.s=6gbrjpgwjskckoa6a5zn6fwqkn67xbtw header.b=DrTDyoc8;
+       spf=pass (google.com: domain of 01000186a2967edd-35701b03-c8c7-4f81-870f-4ee5b2fabeb4-000000@amazonses.com designates 54.240.11.38 as permitted sender) smtp.mailfrom=01000186a2967edd-35701b03-c8c7-4f81-870f-4ee5b2fabeb4-000000@amazonses.com
+Return-Path: <01000186a2967edd-35701b03-c8c7-4f81-870f-4ee5b2fabeb4-000000@amazonses.com>
+Received: from a11-38.smtp-out.amazonses.com (a11-38.smtp-out.amazonses.com. [54.240.11.38])
+        by mx.google.com with ESMTPS id m15-20020ac85b0f000000b003bd15ffddf2si13231198qtw.613.2023.03.02.05.50.17
+        for <nikhil.chauhan9916@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 02 Mar 2023 05:50:17 -0800 (PST)
+Received-SPF: pass (google.com: domain of 01000186a2967edd-35701b03-c8c7-4f81-870f-4ee5b2fabeb4-000000@amazonses.com designates 54.240.11.38 as permitted sender) client-ip=54.240.11.38;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@imarticuslearning.in header.s=m5mh3obwxabzhlrwjykznclejudlpepn header.b=QeHKx1Mu;
+       dkim=pass header.i=@amazonses.com header.s=6gbrjpgwjskckoa6a5zn6fwqkn67xbtw header.b=DrTDyoc8;
+       spf=pass (google.com: domain of 01000186a2967edd-35701b03-c8c7-4f81-870f-4ee5b2fabeb4-000000@amazonses.com designates 54.240.11.38 as permitted sender) smtp.mailfrom=01000186a2967edd-35701b03-c8c7-4f81-870f-4ee5b2fabeb4-000000@amazonses.com
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=m5mh3obwxabzhlrwjykznclejudlpepn; d=imarticuslearning.in;
+	t=1677765017;
+	h=Date:To:From:Reply-To:Subject:Message-ID:List-Unsubscribe:MIME-Version:Content-Type;
+	bh=qF8ZBxsHXPg9+XqxDCNP/+FuKstJUIdSS21YduHNgME=;
+	b=QeHKx1MuaUdY09EmA/TWDJNl0geNpHUBHDgui5AxbVEbwhLU530U2j2lsjgfGws2
+	59qqvlpeiALZnMOGDtsQr2IzrFux652GQKfRWLnoV6p5Vnp/mP+OFOLgSiAKQsWGCMX
+	Q1QJ2nkJxyx3KoWsLkTaWsqZ+2auj2A1IDmdm6xvc5nnZ9peMYcOla45rfsyfvu+mLy
+	MEKwG7RCjmGmkD9KvAvk+QI4POrGJVRBVyjVwHzeYlVIxwn4pemE35MOsENpznfTTGI
+	qL9CnQus2Th0aIPW117VCdGeknTjKcttuo39n/S3AL69YPmVUk4kpo31+LUfIaEXRQp
+	Nr87WoiSDw==
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=6gbrjpgwjskckoa6a5zn6fwqkn67xbtw; d=amazonses.com; t=1677765017;
+	h=Date:To:From:Reply-To:Subject:Message-ID:List-Unsubscribe:MIME-Version:Content-Type:Feedback-ID;
+	bh=qF8ZBxsHXPg9+XqxDCNP/+FuKstJUIdSS21YduHNgME=;
+	b=DrTDyoc8Iys/IZnuxipHRsvkUloXCtZIFkxGByVD+W1pIjSxpJCZTMpeceseO0w5
+	I+kPn6ODRkwogMN1hBjG+3h5cbPQrKIucfQaDbU8+XmhUDeazpWRNbpUAiVex91EXTk
+	id1nNd4lsA6z09/XwutEG5WPqVPO5MpMnVcAHKnQ=
+Date: Thu, 2 Mar 2023 13:50:17 +0000
+To: A <nikhil.chauhan9916@gmail.com>
+From: Anita <anita@imarticuslearning.in>
+Reply-To: Anita <adarsh.takrani@imarticus.com>
+Subject: Become a data analyst and get placed in Deloitte, Goldman Sachs, Wipro, Infosys
+Message-ID: <01000186a2967edd-35701b03-c8c7-4f81-870f-4ee5b2fabeb4-000000@email.amazonses.com>
+X-Mailer: Sendy (https://sendy.co)
+List-Unsubscribe: <http://sendy.eckmarket.in/unsubscribe/ZNwDtwIl4f4QIg40cRuS9VO8h6COopMNzMYzwSZRAOo/ZdIG27DBuGwTY8AGrdP892eA/O9i2qXL1NRiO84YmGld0Fw>
+MIME-Version: 1.0
+Content-Type: text/html; charset=UTF-8
+Feedback-ID: 1.us-east-1.JgxW6J5AHJRATaJm3ihEvEzU9Uhy8jBxfYwI7WkBW1k=:AmazonSES
+X-SES-Outgoing: 2023.03.02-54.240.11.38
+
+<!doctype html>
+<html>
+<head><meta charset="utf-8">
+	<title>PGA Weekday Mailer</title>
+</head>
+<body data-gr-ext-installed="" data-new-gr-c-s-check-loaded="14.1098.0">
+<table align="center" bgcolor="#dcf3f1" border="0" cellpadding="0" cellspacing="0" width="100%">
+	<tbody>
+		<tr>
+			<td><!--Main Table Start Here-->
+			<table align="center" bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" width="700">
+				<tbody><!--logo start-->
+					<tr>
+						<td>
+						<table align="center" border="0" width="650">
+							<tbody>
+								<tr>
+									<td align="left"><img alt="" src="https://f2.leadsquaredcdn.com/t/t20151211173640/content/common/images/Copy%20(1)%20of%20imarticus-logo.png" /></td>
+									<td align="right"><img alt="" src="https://f2.leadsquaredcdn.com/t/t20151211173640/content/common/images/kpmg-logo.png" /></td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+					<!--logo End--><!--Banner start-->
+					<tr>
+						<td style="padding: 10px; ">
+						<table align="center" bgcolor="#ffffff" border="0" height="650" style="border-radius: 20px; border: solid 2px #06645c" width="623">
+							<tbody>
+								<tr>
+									<td align="center" style="font-family:  Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif'">
+									<p style="color: #06645c; padding: 0px 0px 0px 0px">Postgraduate Program in</p>
+
+									<h1 style="color: #06645c; padding: 0px; line-height: 40px; font-family:  Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif'">Data Science and Analytics</h1>
+
+									<h2 style="font-weight: normal; color: #06645c; padding: 0px; line-height: 15px; font-family:  Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif' ">Lead the data-driven world as a data scientist</h2>
+									</td>
+								</tr>
+								<tr>
+									<td align="center"><img alt="" height="322" src="https://f2.leadsquaredcdn.com/t/t20151211173640/content/common/images/Banner_img_weekday.png" width="356" /></td>
+								</tr>
+								<tr>
+									<td align="center" style="padding: 20px"><a href="http://sendy.eckmarket.in/l/J8iOUY8011Hs892L7yEOCh8A/6KzXtDwEQps4e9dSYzBVbg/O9i2qXL1NRiO84YmGld0Fw"><img alt="" src="https://f2.leadsquaredcdn.com/t/t20151211173640/content/common/images/Copy%20(1)%20of%20Apply%20Now.png" style="width: 177px; height: 38px;" /></a></td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+					<!--Banner End-->
+					<tr>
+						<td align="center" border="0">
+						<p style="font-family: trebuchet MS, Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif'; padding: 0px 40px 0px 40px; line-height: 30px;">Develop the skills that leading data scientists possess with our award-winning postgraduate data science program. Create data-driven models for your organisation by mastering <strong><i>Python, SQL, Tableau, and Artificial Intelligence.</i></strong></p>
+						</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>
+						<table align="center" bgcolor="#06645c" border="0" cellpadding="0" cellspacing="0" height="600" style="border-radius: 20px;" width="623">
+							<tbody>
+								<tr>
+									<td align="center" style="font-family: trebuchet MS, Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif' padding:0px">
+									<h1 style="color: rgba(255,255,255,1.00); line-height: 40px; margin:0px; padding: 10px 10px 10px 10px; ">Begin Your Data Science Career With The Best Data Science Certification</h1>
+									<br />
+									<img alt="" height="362" src="https://f2.leadsquaredcdn.com/t/t20151211173640/content/common/images/PGA-Certificate-weekday.png" width="513" /></td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+					<tr>
+						<td align="center">&nbsp;
+						<h2 style="color: #06645c; padding: 0px; line-height: 15px; font-family: trebuchet MS, Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif' ">Why Join This Program</h2>
+						</td>
+					</tr>
+					<tr>
+						<td align="center">
+						<table border="0" width="623">
+							<tbody>
+								<tr>
+									<td height="106"><img alt="" height="81" src="https://landingpagecontentv2.s3.amazonaws.com/t/t20151211173640/content/common/images/job_Guarantee.png" width="81" /></td>
+									<td>
+									<p style="font-family:  Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif'; padding: 0px 40px 0px 40px; "><strong style="color: #06645c">Job Guarantee Program </strong><br />
+									Gain assured interviews and land a job at one of <strong>400+ hiring</strong> partner organisations.</p>
+									</td>
+								</tr>
+								<tr>
+									<td height="106"><img alt="" height="81" src="https://landingpagecontentv2.s3.amazonaws.com/t/t20151211173640/content/common/images/300.png" width="81" /></td>
+									<td>
+									<p style="font-family: Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif'; padding: 0px 40px 0px 40px;"><strong style="color: #06645c">300+ Flexible Learning Hours</strong><br />
+									Study on weekends and become an AI and machine learning expert</p>
+									</td>
+								</tr>
+								<tr>
+									<td height="106"><img alt="" height="81" src="https://landingpagecontentv2.s3.amazonaws.com/t/t20151211173640/content/common/images/Specialisation.png" width="81" /></td>
+									<td>
+									<p style="font-family:  Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif'; padding: 0px 40px 0px 40px;"><strong style="color: #06645c">Specialisation Tracks</strong><br />
+									Choose a specialisation based on your strengths and accelerate your journey to success</p>
+									</td>
+								</tr>
+								<tr>
+									<td height="106"><img alt="" height="81" src="https://landingpagecontentv2.s3.amazonaws.com/t/t20151211173640/content/common/images/Hackathons.png" width="81" /></td>
+									<td>
+									<p style="font-family:  Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif'; padding: 0px 40px 0px 40px;"><strong style="color: #06645c">Hackathons And 25+ Real-World Projects</strong><br />
+									Gain access to your course on the LMS, get assessed in real-time and work on industry-specific projects.</p>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td align="center"><a href="http://sendy.eckmarket.in/l/J8iOUY8011Hs892L7yEOCh8A/6KzXtDwEQps4e9dSYzBVbg/O9i2qXL1NRiO84YmGld0Fw"><img alt="" src="https://f2.leadsquaredcdn.com/t/t20151211173640/content/common/images/Register%20Now.png" /></a></td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>
+						<table align="center" border="0" cellpadding="0" cellspacing="0" width="623">
+							<tbody>
+								<tr>
+									<td align="center" width="221">
+									<h2 style="font-family: trebuchet MS, Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif'; color: #06645c">Data Scientist</h2>
+									<img alt="" height="107" src="https://f2.leadsquaredcdn.com/t/t20151211173640/content/common/images/Salary.png" width="107" />
+									<h3 style="font-family: trebuchet MS, Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif'; color: #06645c">Average Annual Salary</h3>
+
+									<h1 style="font-family: trebuchet MS, Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif'; color: #06645c">INR 10,00,000</h1>
+
+									<p style="color:#06645c; font-family: Poppins, Roboto; ">Source: Glassdoor</p>
+									</td>
+									<td bgcolor="#777777" width="1">&nbsp;</td>
+									<td align="center" width="221">
+									<h2 style="font-family: trebuchet MS, Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif'; color:#06645c">Data Science Industry</h2>
+									<img alt="" height="107" src="https://f2.leadsquaredcdn.com/t/t20151211173640/content/common/images/Growth.png" width="107" />
+									<h3 style="font-family: trebuchet MS, Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif'; color: #06645c">Compound Annual Growth Rate</h3>
+
+									<h1 style="font-family: trebuchet MS, Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif'; color: #06645c; padding: 0px; margin: 0px">26.9%</h1>
+									<strong style="color:#06645c ">(2020-2027)</strong>
+
+									<p style="color:#06645c;font-family: Poppins, Roboto ">Source: Grandviewresearch</p>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>
+						<table align="center" bgcolor="#06645c" border="0" cellpadding="0" cellspacing="0" height="500" width="700">
+							<tbody>
+								<tr>
+									<td align="center" colspan="2" style="font-family: trebuchet MS, Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif' padding:0px;">
+									<h1 style="color: rgba(255,255,255,1.00); line-height: 40px; margin:0px; padding: 20px 10px 00px 10px; align-content: center;">Achieve Success In Data Science<br />
+									With Leaders In Analytics</h1>
+									</td>
+								</tr>
+								<tr>
+									<td align="center"><img alt="" src="https://f2.leadsquaredcdn.com/t/t20151211173640/content/common/images/Best%20Education%20Brands%20-%20Logo%20-%205th%20Edition.png" /><br />
+									<br />
+									<strong style="font-weight: 500; color: #00ffc1; font-family: Poppins, Roboto">Best Education Brand<br />
+									in Analytics</strong></td>
+									<td align="center"><img alt="" src="https://f2.leadsquaredcdn.com/t/t20151211173640/content/common/images/Indian%20Education.png" /><br />
+									<br />
+									<strong style="font-weight: 500; color: #00ffc1;font-family: Poppins, Roboto">Best Education Brand<br />
+									in Analytics</strong></td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>
+						<table align="center" border="0" style=" border: 1px; border-radius: 5px; padding: : 10px; " width="623">
+							<tbody>
+								<tr>
+									<td align="center">
+									<h2 style="color: #06645c; padding: 0px; line-height: 15px; font-family: trebuchet MS, Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif' ">Our Alumni Work At</h2>
+									</td>
+								</tr>
+								<tr>
+									<td align="center"><img alt="" src="https://f2.leadsquaredcdn.com/t/t20151211173640/content/common/images/Copy%20(1)%20of%20Alumni.png" /></td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td align="center"><br />
+						<a href="http://sendy.eckmarket.in/l/J8iOUY8011Hs892L7yEOCh8A/6KzXtDwEQps4e9dSYzBVbg/O9i2qXL1NRiO84YmGld0Fw"><img alt="" height="38" src="https://f2.leadsquaredcdn.com/t/t20151211173640/content/common/images/Enrol%20Now.png" width="164" /></a><br />
+						&nbsp;</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>
+						<table align="center" bgcolor="#c4c4c4 " border="0" cellpadding="0" cellspacing="0" height="100" width="700">
+							<tbody>
+								<tr>
+									<td align="center" style="font-family: trebuchet MS, Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif'">
+									<p style="font-weight:500; font-size: 25px">We have an 80% Placement Success Rate</p>
+									</td>
+								</tr>
+								<tr>
+									<td align="center" style="padding: 10px"><a href="http://sendy.eckmarket.in/l/J8iOUY8011Hs892L7yEOCh8A/D95f7vx8576312S7VrUlnslw/O9i2qXL1NRiO84YmGld0Fw"><img alt="" height="44" src="https://f2.leadsquaredcdn.com/t/t20151211173640/content/common/images/Download%20Career%20Report.png" width="300" /></a></td>
+								</tr>
+								<tr>
+									<td align="center" bgcolor="#06645c">
+									<p style="font-family: trebuchet MS, Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif';   border-radius: 5px; margin: 5px; color: rgba(247,244,244,1.00)"><a href="http://sendy.eckmarket.in/l/J8iOUY8011Hs892L7yEOCh8A/xIP763Da8Qb17md2AxDFstHA/O9i2qXL1NRiO84YmGld0Fw" style="text-decoration: none; color: rgba(255,255,255,1.00);">www.imarticus.org</a></p>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<!--Main Table End Here--></td>
+		</tr>
+	</tbody>
+</table>
+
+<hr />
+<center><span style="font-size:10px;">You are getting this mail because you have subscribed to receive these emails.<br />
+Check this mail-in <a href="http://sendy.eckmarket.in/w/J8iOUY8011Hs892L7yEOCh8A/ZdIG27DBuGwTY8AGrdP892eA/O9i2qXL1NRiO84YmGld0Fw" >View web version</a>, If you don&rsquo;t wish to receive these emails, unsubscribe <a href="http://sendy.eckmarket.in/unsubscribe/ZNwDtwIl4f4QIg40cRuS9VO8h6COopMNzMYzwSZRAOo/ZdIG27DBuGwTY8AGrdP892eA/O9i2qXL1NRiO84YmGld0Fw" >here.</a></span></center>
+</body>
+<grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>
+<img src="http://sendy.eckmarket.in/t/O9i2qXL1NRiO84YmGld0Fw/J8iOUY8011Hs892L7yEOCh8A" alt="" style="width:1px;height:1px;"/>
+####################vered-To: nikhil.chauhan9916@gmail.com
+Received: by 2002:a0c:9792:0:b0:579:8995:d78d with SMTP id l18csp28071qvd;
+        Thu, 2 Mar 2023 04:16:57 -0800 (PST)
+X-Google-Smtp-Source: AK7set90KKkApVzrH08+MbmeiGYgsaxOTgrAZYpu+AxkkN33DgdYXkkCuJxGFnjUM78LWjyYrjma
+X-Received: by 2002:a05:6214:4002:b0:577:4bb5:f9e3 with SMTP id kd2-20020a056214400200b005774bb5f9e3mr5098365qvb.35.1677759416740;
+        Thu, 02 Mar 2023 04:16:56 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1677759416; cv=none;
+        d=google.com; s=arc-20160816;
+        b=j57OBRZ3t60w/aGjZ0b0V5R6Ovk1gL3uR/EI2C6skpZzctGds1wL1BMNA56T3jSTuv
+         N9AsboDDMvXciJGqQEIUWMBUHKaNBiJEufHRoRwG22lxT0QiOAtdbdg0HQ48FKl/bUXt
+         /VP8ZMv48xGNPQMJF7OMAP01m5+a2KUNjXIHFwEfepwMn4U7zhm/cNVSfH4S+YdpTgoo
+         I+8Cq0/dE5xgPHqidwNVvfiMQsDh5gsjctf5szwRrlf/mwwWOaySN9E2AHKku7aNn2+E
+         UQQgwJROjWNC79XsTwFoPwHkUuimCMpDRjOEYASi+bd+k+RiqvfK8zl27DUFevBklx/F
+         l4Jg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=feedback-id:mime-version:list-unsubscribe:message-id:subject
+         :reply-to:from:to:date:dkim-signature:dkim-signature;
+        bh=Pq8S9DKyTzqZgOcRQpt4gRivyDBz2LoVNfSQeGszGSA=;
+        b=Yw2OoGuuG+M8o3K36jtXfV39IVwP5qTmwqQ1Np+9UWAWHbM0JM2aotU6IqUZdVfT3Y
+         rGCCe/n+LnfISFm4OwC8A6qJJDkQt0LEUpT6xXI2dUJ6FPUoGQJMIx+Uw5kO4HSnJkfU
+         WtWMGkIDXSIYik5gp2JRX3h6fpGgBG7KV5j1vzHFeyP6aYetXAXdAkn3VEWZtk4b3QIx
+         +aLwR+WRouoITUFDtJiEHFLkv1GMAmHzie4SQ2nvT3tjeuucPTSX+QyfCWTx15zEgKvj
+         NogltDhcFjYamccQ4o5tdpEcEpxW0vmlpGbZWRbUHTcknt2dx72GxKiw26P3y88EHn/2
+         he1Q==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@imarticuslearning.in header.s=m5mh3obwxabzhlrwjykznclejudlpepn header.b=aLJ7Dx2D;
+       dkim=pass header.i=@amazonses.com header.s=6gbrjpgwjskckoa6a5zn6fwqkn67xbtw header.b=htOUMRzj;
+       spf=pass (google.com: domain of 01000186a24102ae-14c72003-cfb8-49b1-bcf0-9deda0306b4b-000000@amazonses.com designates 54.240.11.57 as permitted sender) smtp.mailfrom=01000186a24102ae-14c72003-cfb8-49b1-bcf0-9deda0306b4b-000000@amazonses.com
+Return-Path: <01000186a24102ae-14c72003-cfb8-49b1-bcf0-9deda0306b4b-000000@amazonses.com>
+Received: from a11-57.smtp-out.amazonses.com (a11-57.smtp-out.amazonses.com. [54.240.11.57])
+        by mx.google.com with ESMTPS id v12-20020a0ce1cc000000b0056ea39b7a00si12944718qvl.226.2023.03.02.04.16.55
+        for <nikhil.chauhan9916@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 02 Mar 2023 04:16:56 -0800 (PST)
+Received-SPF: pass (google.com: domain of 01000186a24102ae-14c72003-cfb8-49b1-bcf0-9deda0306b4b-000000@amazonses.com designates 54.240.11.57 as permitted sender) client-ip=54.240.11.57;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@imarticuslearning.in header.s=m5mh3obwxabzhlrwjykznclejudlpepn header.b=aLJ7Dx2D;
+       dkim=pass header.i=@amazonses.com header.s=6gbrjpgwjskckoa6a5zn6fwqkn67xbtw header.b=htOUMRzj;
+       spf=pass (google.com: domain of 01000186a24102ae-14c72003-cfb8-49b1-bcf0-9deda0306b4b-000000@amazonses.com designates 54.240.11.57 as permitted sender) smtp.mailfrom=01000186a24102ae-14c72003-cfb8-49b1-bcf0-9deda0306b4b-000000@amazonses.com
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=m5mh3obwxabzhlrwjykznclejudlpepn; d=imarticuslearning.in;
+	t=1677759415;
+	h=Date:To:From:Reply-To:Subject:Message-ID:List-Unsubscribe:MIME-Version:Content-Type;
+	bh=23NAI1zzdJvecPWuzl4sWtt/K7uhUknkzTDDLnmZ70c=;
+	b=aLJ7Dx2DsoGyTY25TeqOiHGSWrYkIQbfuP5w603h33w6YKdNw+f/E42K+iZ5zO6r
+	xqfcmHY2jGNnCBba7n3t7lvoE5JREqMoNdibGnCypkMJhB/Au6QE+5JOiGNRkzdyoyV
+	Q8b+PoywpCbTGB6vkANF1LZfX/chJlwf2d41nSN1+iq/TedVjtFUBkhPwBTqplA4aMi
+	2IXCktXQMg9TGoqCKLx2POMnNBhnOO0QV0lmTdXbTGDNBAlVAdOQRQ7nU6BxML05LTm
+	tqfqX5NHdyCVDGAq6Xrs7p6ygWgCXEGRgz0x9eIniJpA21rsDjlDFb5g4yQe57380ey
+	6Ze9qdDesQ==
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=6gbrjpgwjskckoa6a5zn6fwqkn67xbtw; d=amazonses.com; t=1677759415;
+	h=Date:To:From:Reply-To:Subject:Message-ID:List-Unsubscribe:MIME-Version:Content-Type:Feedback-ID;
+	bh=23NAI1zzdJvecPWuzl4sWtt/K7uhUknkzTDDLnmZ70c=;
+	b=htOUMRzjGNwaCdSjxVRVZj61COVrnXCFqVkUJT0bvcbw+vghqREaYPLqymtJzl43
+	eHsUp2PcfFJ6p6X1CsJLzEgfvEx56SclWIrlwzcoULtDIfCkADv0H8oxcV2DFH9Znnn
+	ccmivNt6doA4/Y9KyhO/hfoFf22k3FX0vLf+awDI=
+Date: Thu, 2 Mar 2023 12:16:54 +0000
+To: Nikhil <nikhil.chauhan9916@gmail.com>
+From: Anita <anita@imarticuslearning.in>
+Reply-To: Anita <adarsh.takrani@imarticus.com>
+Subject: Nikhil, dreaming about working as a data scientist?
+Message-ID: <01000186a24102ae-14c72003-cfb8-49b1-bcf0-9deda0306b4b-000000@email.amazonses.com>
+X-Mailer: Sendy (https://sendy.co)
+List-Unsubscribe: <http://sendy.eckmarket.in/unsubscribe/ZNwDtwIl4f4QIg40cRuS9VO8h6COopMNzMYzwSZRAOo/kfQnh6nIDntDX7a5qgwwYg/MhDznJ1kePuLnKADU3vWGA>
+MIME-Version: 1.0
+Content-Type: text/html; charset=UTF-8
+Feedback-ID: 1.us-east-1.JgxW6J5AHJRATaJm3ihEvEzU9Uhy8jBxfYwI7WkBW1k=:AmazonSES
+X-SES-Outgoing: 2023.03.02-54.240.11.57
+
+<!doctype html>
+<html>
+<head><meta charset="utf-8">
+	<title>PGA Weekday Mailer</title>
+</head>
+<body data-gr-ext-installed="" data-new-gr-c-s-check-loaded="14.1098.0">
+<table align="center" bgcolor="#dcf3f1" border="0" cellpadding="0" cellspacing="0" width="100%">
+	<tbody>
+		<tr>
+			<td><!--Main Table Start Here-->
+			<table align="center" bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" width="700">
+				<tbody><!--logo start-->
+					<tr>
+						<td>
+						<table align="center" border="0" width="650">
+							<tbody>
+								<tr>
+									<td align="left"><img alt="" src="https://f2.leadsquaredcdn.com/t/t20151211173640/content/common/images/Copy%20(1)%20of%20imarticus-logo.png" /></td>
+									<td align="right"><img alt="" src="https://f2.leadsquaredcdn.com/t/t20151211173640/content/common/images/kpmg-logo.png" /></td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+					<!--logo End--><!--Banner start-->
+					<tr>
+						<td style="padding: 10px; ">
+						<table align="center" bgcolor="#ffffff" border="0" height="650" style="border-radius: 20px; border: solid 2px #06645c" width="623">
+							<tbody>
+								<tr>
+									<td align="center" style="font-family:  Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif'">
+									<p style="color: #06645c; padding: 0px 0px 0px 0px">Postgraduate Program in</p>
+
+									<h1 style="color: #06645c; padding: 0px; line-height: 40px; font-family:  Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif'">Data Science and Analytics</h1>
+
+									<h2 style="font-weight: normal; color: #06645c; padding: 0px; line-height: 15px; font-family:  Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif' ">Lead the data-driven world as a data scientist</h2>
+									</td>
+								</tr>
+								<tr>
+									<td align="center"><img alt="" height="322" src="https://f2.leadsquaredcdn.com/t/t20151211173640/content/common/images/Banner_img_weekday.png" width="356" /></td>
+								</tr>
+								<tr>
+									<td align="center" style="padding: 20px"><a href="http://sendy.eckmarket.in/l/xhAwliboyrKZi892fLyTwliA/0Qs5PkkRsJzRIo0qcZwvTg/MhDznJ1kePuLnKADU3vWGA" target="_blank"><img alt="" src="https://f2.leadsquaredcdn.com/t/t20151211173640/content/common/images/Copy%20(1)%20of%20Apply%20Now.png" style="width: 177px; height: 38px;" /></a></td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+					<!--Banner End-->
+					<tr>
+						<td align="center" border="0">
+						<p style="font-family: trebuchet MS, Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif'; padding: 0px 40px 0px 40px; line-height: 30px;">Develop the skills that leading data scientists possess with our award-winning postgraduate data science program. Create data-driven models for your organisation by mastering <strong><i>Python, SQL, Tableau, and Artificial Intelligence.</i></strong></p>
+						</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>
+						<table align="center" bgcolor="#06645c" border="0" cellpadding="0" cellspacing="0" height="600" style="border-radius: 20px;" width="623">
+							<tbody>
+								<tr>
+									<td align="center" style="font-family: trebuchet MS, Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif' padding:0px">
+									<h1 style="color: rgba(255,255,255,1.00); line-height: 40px; margin:0px; padding: 10px 10px 10px 10px; ">Begin Your Data Science Career With The Best Data Science Certification</h1>
+									<br />
+									<img alt="" height="362" src="https://f2.leadsquaredcdn.com/t/t20151211173640/content/common/images/PGA-Certificate-weekday.png" width="513" /></td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+					<tr>
+						<td align="center">&nbsp;
+						<h2 style="color: #06645c; padding: 0px; line-height: 15px; font-family: trebuchet MS, Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif' ">Why Join This Program</h2>
+						</td>
+					</tr>
+					<tr>
+						<td align="center">
+						<table border="0" width="623">
+							<tbody>
+								<tr>
+									<td height="106"><img alt="" height="81" src="https://landingpagecontentv2.s3.amazonaws.com/t/t20151211173640/content/common/images/job_Guarantee.png" width="81" /></td>
+									<td>
+									<p style="font-family:  Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif'; padding: 0px 40px 0px 40px; "><strong style="color: #06645c">Job Guarantee Program </strong><br />
+									Gain assured interviews and land a job at one of <strong>400+ hiring</strong> partner organisations.</p>
+									</td>
+								</tr>
+								<tr>
+									<td height="106"><img alt="" height="81" src="https://landingpagecontentv2.s3.amazonaws.com/t/t20151211173640/content/common/images/300.png" width="81" /></td>
+									<td>
+									<p style="font-family: Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif'; padding: 0px 40px 0px 40px;"><strong style="color: #06645c">300+ Flexible Learning Hours</strong><br />
+									Study on weekends and become an AI and machine learning expert</p>
+									</td>
+								</tr>
+								<tr>
+									<td height="106"><img alt="" height="81" src="https://landingpagecontentv2.s3.amazonaws.com/t/t20151211173640/content/common/images/Specialisation.png" width="81" /></td>
+									<td>
+									<p style="font-family:  Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif'; padding: 0px 40px 0px 40px;"><strong style="color: #06645c">Specialisation Tracks</strong><br />
+									Choose a specialisation based on your strengths and accelerate your journey to success</p>
+									</td>
+								</tr>
+								<tr>
+									<td height="106"><img alt="" height="81" src="https://landingpagecontentv2.s3.amazonaws.com/t/t20151211173640/content/common/images/Hackathons.png" width="81" /></td>
+									<td>
+									<p style="font-family:  Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif'; padding: 0px 40px 0px 40px;"><strong style="color: #06645c">Hackathons And 25+ Real-World Projects</strong><br />
+									Gain access to your course on the LMS, get assessed in real-time and work on industry-specific projects.</p>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td align="center"><a href="http://sendy.eckmarket.in/l/xhAwliboyrKZi892fLyTwliA/0Qs5PkkRsJzRIo0qcZwvTg/MhDznJ1kePuLnKADU3vWGA" target="_blank"><img alt="" src="https://f2.leadsquaredcdn.com/t/t20151211173640/content/common/images/Register%20Now.png" /></a></td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>
+						<table align="center" border="0" cellpadding="0" cellspacing="0" width="623">
+							<tbody>
+								<tr>
+									<td align="center" width="221">
+									<h2 style="font-family: trebuchet MS, Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif'; color: #06645c">Data Scientist</h2>
+									<img alt="" height="107" src="https://f2.leadsquaredcdn.com/t/t20151211173640/content/common/images/Salary.png" width="107" />
+									<h3 style="font-family: trebuchet MS, Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif'; color: #06645c">Average Annual Salary</h3>
+
+									<h1 style="font-family: trebuchet MS, Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif'; color: #06645c">INR 10,00,000</h1>
+
+									<p style="color:#06645c; font-family: Poppins, Roboto; ">Source: Glassdoor</p>
+									</td>
+									<td bgcolor="#777777" width="1">&nbsp;</td>
+									<td align="center" width="221">
+									<h2 style="font-family: trebuchet MS, Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif'; color:#06645c">Data Science Industry</h2>
+									<img alt="" height="107" src="https://f2.leadsquaredcdn.com/t/t20151211173640/content/common/images/Growth.png" width="107" />
+									<h3 style="font-family: trebuchet MS, Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif'; color: #06645c">Compound Annual Growth Rate</h3>
+
+									<h1 style="font-family: trebuchet MS, Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif'; color: #06645c; padding: 0px; margin: 0px">26.9%</h1>
+									<strong style="color:#06645c ">(2020-2027)</strong>
+
+									<p style="color:#06645c;font-family: Poppins, Roboto ">Source: Grandviewresearch</p>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>
+						<table align="center" bgcolor="#06645c" border="0" cellpadding="0" cellspacing="0" height="500" width="700">
+							<tbody>
+								<tr>
+									<td align="center" colspan="2" style="font-family: trebuchet MS, Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif' padding:0px;">
+									<h1 style="color: rgba(255,255,255,1.00); line-height: 40px; margin:0px; padding: 20px 10px 00px 10px; align-content: center;">Achieve Success In Data Science<br />
+									With Leaders In Analytics</h1>
+									</td>
+								</tr>
+								<tr>
+									<td align="center"><img alt="" src="https://f2.leadsquaredcdn.com/t/t20151211173640/content/common/images/Best%20Education%20Brands%20-%20Logo%20-%205th%20Edition.png" /><br />
+									<br />
+									<strong style="font-weight: 500; color: #00ffc1; font-family: Poppins, Roboto">Best Education Brand<br />
+									in Analytics</strong></td>
+									<td align="center"><img alt="" src="https://f2.leadsquaredcdn.com/t/t20151211173640/content/common/images/Indian%20Education.png" /><br />
+									<br />
+									<strong style="font-weight: 500; color: #00ffc1;font-family: Poppins, Roboto">Best Education Brand<br />
+									in Analytics</strong></td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>
+						<table align="center" border="0" style=" border: 1px; border-radius: 5px; padding: : 10px; " width="623">
+							<tbody>
+								<tr>
+									<td align="center">
+									<h2 style="color: #06645c; padding: 0px; line-height: 15px; font-family: trebuchet MS, Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif' ">Our Alumni Work At</h2>
+									</td>
+								</tr>
+								<tr>
+									<td align="center"><img alt="" src="https://f2.leadsquaredcdn.com/t/t20151211173640/content/common/images/Copy%20(1)%20of%20Alumni.png" /></td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td align="center"><a href="http://sendy.eckmarket.in/l/xhAwliboyrKZi892fLyTwliA/0Qs5PkkRsJzRIo0qcZwvTg/MhDznJ1kePuLnKADU3vWGA" target="_blank"><img alt="" src="https://f2.leadsquaredcdn.com/t/t20151211173640/content/common/images/Enrol%20Now.png" style="width: 164px; height: 38px;" /></a><br />
+						&nbsp;</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>
+						<table align="center" bgcolor="#c4c4c4 " border="0" cellpadding="0" cellspacing="0" height="100" width="700">
+							<tbody>
+								<tr>
+									<td align="center" style="font-family: trebuchet MS, Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif'">
+									<p style="font-weight:500; font-size: 25px">We have an 80% Placement Success Rate</p>
+									</td>
+								</tr>
+								<tr>
+									<td align="center" style="padding: 10px"><a href="http://sendy.eckmarket.in/l/xhAwliboyrKZi892fLyTwliA/ldGeWxaQGNnZVz5SnDKMFQ/MhDznJ1kePuLnKADU3vWGA" target="_blank"><img alt="" src="https://f2.leadsquaredcdn.com/t/t20151211173640/content/common/images/Download%20Career%20Report.png" style="width: 300px; height: 44px;" /></a></td>
+								</tr>
+								<tr>
+									<td align="center" bgcolor="#06645c">
+									<p style="font-family: trebuchet MS, Verdana, Georgia, Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif';   border-radius: 5px; margin: 5px; color: rgba(247,244,244,1.00)"><a href="http://sendy.eckmarket.in/l/xhAwliboyrKZi892fLyTwliA/0uQZO6ur763o3IZI8d3FLR892g/MhDznJ1kePuLnKADU3vWGA" style="text-decoration: none; color: rgba(255,255,255,1.00);">www.imarticus.org</a></p>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<!--Main Table End Here--></td>
+		</tr>
+	</tbody>
+</table>
+
+<hr />
+<center><span style="font-size:10px;">You are getting this mail because you have subscribed to receive these emails.<br />
+Check this mail-in <a href="http://sendy.eckmarket.in/w/xhAwliboyrKZi892fLyTwliA/kfQnh6nIDntDX7a5qgwwYg/MhDznJ1kePuLnKADU3vWGA" >View web version</a>, If you don&rsquo;t wish to receive these emails, unsubscribe <a href="http://sendy.eckmarket.in/unsubscribe/ZNwDtwIl4f4QIg40cRuS9VO8h6COopMNzMYzwSZRAOo/kfQnh6nIDntDX7a5qgwwYg/MhDznJ1kePuLnKADU3vWGA" >here.</a></span></center>
+</body>
+<grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>
+<img src="http://sendy.eckmarket.in/t/MhDznJ1kePuLnKADU3vWGA/xhAwliboyrKZi892fLyTwliA" alt="" style="width:1px;height:1px;"/>
+####################vered-To: nikhil.chauhan9916@gmail.com
+Received: by 2002:a05:6214:4948:b0:4c6:49b8:645e with SMTP id pe8csp4769703qvb;
+        Wed, 1 Mar 2023 02:06:50 -0800 (PST)
+X-Google-Smtp-Source: AK7set/9kmjE1qgn5JCamGt1GYTh43iCwO0bvpGgc76n5/dVlh00JvdMwGcLUwm0dxreMmimFWqB
+X-Received: by 2002:a05:622a:1015:b0:3bf:c178:587b with SMTP id d21-20020a05622a101500b003bfc178587bmr9991918qte.47.1677665210356;
+        Wed, 01 Mar 2023 02:06:50 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1677665210; cv=none;
+        d=google.com; s=arc-20160816;
+        b=WXuP5zhNNGOETwmxnXgSNsPv0aUiZWX4dWCUTZU1fuDiBuesHgMOTXbqHgeJ3d7vqu
+         p5P2JBnHh2QpLwykgphKynlVBftWvpvMxnHumNe0ijHx9MQbASCxbUCnEu8d+aO9HI8s
+         RQaut8pF3+PAswpz8YNF8DcFRdP3sDBZ8KuZfsdZPqtHKuykP11CElAdWoJMA3jq+swB
+         N5M/3KY5kXh6uyxVZqwtrORVT6pZDa7T7tGG1ox98C2uoZj5Kr7S273u8tVEi9jiFEgX
+         HbvSlf9uudGDpNMQp1+fyNXf2DLTe2Ix9YLkh9thv06AHLbP3OYuydecEZezTQY9I/Pe
+         oCLg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=feedback-id:mime-version:list-unsubscribe:message-id:subject
+         :reply-to:from:to:date:dkim-signature:dkim-signature;
+        bh=2gynOqNa8KhmR615hLhh1IZXHTG4V0Ejfnau5xyP/F4=;
+        b=agtPGtM+VwTiNXQTO5J8TGKBc0mUY/JP95CfEiVCSlIlRVus4tmqacz92Ej5A1RwiX
+         rq3O9xkelaRF1aCHx7myHDyipd53EOernYe3kbpuQdgfu3A1ZEvYN6FDfvqutU2JrKEI
+         gWOVgPKGafwvtbg81D6wUfVnAz8HJ0w0LFtXHoE9TokEVs9D3QArmRZ4Cq+EpUOy2/md
+         enWwYZuR7AQ2iAial42749Ri7K5hALx95rmf5ErZ6cnNRo3FVoSOkIApZRWQA7H6vhx7
+         Y1SG1V/EaLPFCwIrElm/GF1taGV/+LY3butkiYjhQBjoYHoMOELKedkkDd3jt/+lb6Fy
+         UryA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@imarticuslearning.in header.s=m5mh3obwxabzhlrwjykznclejudlpepn header.b=b2U3+Tr1;
+       dkim=pass header.i=@amazonses.com header.s=6gbrjpgwjskckoa6a5zn6fwqkn67xbtw header.b="G+DQ0f0/";
+       spf=pass (google.com: domain of 010001869ca38e3a-0f28ea9f-2567-4f90-9209-1c2c7e591666-000000@amazonses.com designates 54.240.11.137 as permitted sender) smtp.mailfrom=010001869ca38e3a-0f28ea9f-2567-4f90-9209-1c2c7e591666-000000@amazonses.com
+Return-Path: <010001869ca38e3a-0f28ea9f-2567-4f90-9209-1c2c7e591666-000000@amazonses.com>
+Received: from a11-137.smtp-out.amazonses.com (a11-137.smtp-out.amazonses.com. [54.240.11.137])
+        by mx.google.com with ESMTPS id s7-20020ac85cc7000000b003b829994e61si10627468qta.116.2023.03.01.02.06.50
+        for <nikhil.chauhan9916@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 01 Mar 2023 02:06:50 -0800 (PST)
+Received-SPF: pass (google.com: domain of 010001869ca38e3a-0f28ea9f-2567-4f90-9209-1c2c7e591666-000000@amazonses.com designates 54.240.11.137 as permitted sender) client-ip=54.240.11.137;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@imarticuslearning.in header.s=m5mh3obwxabzhlrwjykznclejudlpepn header.b=b2U3+Tr1;
+       dkim=pass header.i=@amazonses.com header.s=6gbrjpgwjskckoa6a5zn6fwqkn67xbtw header.b="G+DQ0f0/";
+       spf=pass (google.com: domain of 010001869ca38e3a-0f28ea9f-2567-4f90-9209-1c2c7e591666-000000@amazonses.com designates 54.240.11.137 as permitted sender) smtp.mailfrom=010001869ca38e3a-0f28ea9f-2567-4f90-9209-1c2c7e591666-000000@amazonses.com
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=m5mh3obwxabzhlrwjykznclejudlpepn; d=imarticuslearning.in;
+	t=1677665210;
+	h=Date:To:From:Reply-To:Subject:Message-ID:List-Unsubscribe:MIME-Version:Content-Type;
+	bh=8Ua2eQGkGC7S83Vn2yUd2xf9W4w3PgwZt35xoumjn3A=;
+	b=b2U3+Tr1cA+4YoPDcWUdAz/SkkLRHbgM0Qp3gY87X+doDf0t3DLuPpEm3ih1ZEdx
+	/OOXTeJG9NTN3l4q77lPIqSF9fWwPlmdRZkeh//QxTj0cA3JSV3txuOavytrzzmIJ6S
+	S/TWi2IZo9p1AZ0mu+p4S8D8Zb/uNaMh2A14BHVwCmFv9CDhHdrwNyXHnPN7LEoip6T
+	5Me8HcGY4B1lDNASeyDmqmMqXQ8MBR4tQptom9sgwsqPOUEi9izvWTm6GcU9zxUAoWt
+	f1FiU0Fnu4tX5vGUaan01tZk79dZjfi+OK6iIeRdHWlJN1aCZmr/eiW//X59ipBO2va
+	/3HVgUDYFQ==
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=6gbrjpgwjskckoa6a5zn6fwqkn67xbtw; d=amazonses.com; t=1677665209;
+	h=Date:To:From:Reply-To:Subject:Message-ID:List-Unsubscribe:MIME-Version:Content-Type:Feedback-ID;
+	bh=8Ua2eQGkGC7S83Vn2yUd2xf9W4w3PgwZt35xoumjn3A=;
+	b=G+DQ0f0/ALGGLI2Tf31djTULEYzC3vwgfLj3Sxa2HRrHqSG3vltsDPMT57min+nJ
+	AJkz2sBy51/BEG3lwAIfAvqt0stIYSlO1eElkebZU3NyxfBBroCD+JbUgsibJvwpi1L
+	+aQZMNT1zWETU/VORIWJLn1bfNpIvNfyAXIDNZTg=
+Date: Wed, 1 Mar 2023 10:06:49 +0000
+To: A <nikhil.chauhan9916@gmail.com>
+From: Imarticus <anita@imarticuslearning.in>
+Reply-To: Imarticus <rajeswari.madhanagopal@imarticus.com>
+Subject: Selection Process Information Session - Data Analytics
+Message-ID: <010001869ca38e3a-0f28ea9f-2567-4f90-9209-1c2c7e591666-000000@email.amazonses.com>
+X-Mailer: Sendy (https://sendy.co)
+List-Unsubscribe: <http://sendy.eckmarket.in/unsubscribe/ZNwDtwIl4f4QIg40cRuS9VO8h6COopMNzMYzwSZRAOo/BSM763409cgLNCzjChIr3C0g/MwrM92hDr7G2nBecaXFuGQ>
+MIME-Version: 1.0
+Content-Type: text/html; charset=UTF-8
+Feedback-ID: 1.us-east-1.JgxW6J5AHJRATaJm3ihEvEzU9Uhy8jBxfYwI7WkBW1k=:AmazonSES
+X-SES-Outgoing: 2023.03.01-54.240.11.137
+
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<p><span style="font-size:16px;"><span style="font-family:georgia;">Hello,</span></span></p>
+
+<p>&nbsp;</p>
+
+<p><span style="font-size:16px;"><span style="font-family:georgia;">Yes, you could be next in the line and can grab a wonderful opportunity in a Top Tier&nbsp;Multinational IT company as <strong>DATA ANALYST&nbsp;</strong>&nbsp;with a&nbsp;salary of <strong>3.5 to 5 Lac</strong> per annum&nbsp;on successful selection.<br />
+<br />
+&nbsp;We have organized a <strong>Selection cum Information session with industry experts for job aspirants.</strong><br />
+<br />
+All you need to do is register now using the link below and login into the Zoom Session on&nbsp;<b>04th</b><b>&nbsp;March</b><strong>, Saturday at 11.50 AM&nbsp;</strong>through the link provided to your&nbsp;email.<br />
+&nbsp;<br />
+The&nbsp;link for registration:&nbsp;&nbsp;<a data-saferedirecturl="https://www.google.com/url?q=https://zoom.us/webinar/register/1616776502909/WN_C4YzC7RpSaCZ1VAI_OX7Nw&amp;source=gmail&amp;ust=1677745918933000&amp;usg=AOvVaw13C3kCrlInbEadh4aN4tS0" href="http://sendy.eckmarket.in/l/hbaH763M17D9eDpzkr4lVzjg/EZMLV1bNO5AcHdeWZMwkOA/MwrM92hDr7G2nBecaXFuGQ" target="_blank"><b>Register Now</b></a><br />
+&nbsp;&nbsp;&nbsp;<br />
+<strong>Eligibility Criteria</strong></span></span></p>
+
+<ul>
+	<li><span style="font-size:16px;"><span style="font-family:georgia;">Degree:-&nbsp;&nbsp;BE - B.Tech / BCA / MCA</span></span></li>
+	<li><span style="font-size:16px;"><span style="font-family:georgia;">Percentage &ndash; Min 60% in 10th,12th, Degree</span></span></li>
+	<li><span style="font-size:16px;"><span style="font-family:georgia;">Passed Outs &ndash; 2019 to 2022</span></span></li>
+	<li><span style="font-size:16px;"><span style="font-family:georgia;">Decent English Communication</span></span></li>
+</ul>
+
+<p><span style="font-size:16px;"><span style="font-family:georgia;"><b>Salary&nbsp;</b>&ndash; 5&nbsp;to 7 Lac Per Annum</span></span></p>
+
+<p><span style="font-size:16px;"><span style="font-family:georgia;"><strong>Recruiters</strong>&nbsp;-Amazon, Rapido, Goldman Sachs, Accenture, Samsung, Capgemini, Paloalto.&nbsp;&nbsp;</span></span></p>
+
+<p><span style="font-size:16px;"><span style="font-family:georgia;"><strong>Date:&nbsp;</strong>&nbsp;<b>04th&nbsp;<font color="#000000">March</font></b>&nbsp;<strong>-2023 ( Saturday @ 11:50 AM )&nbsp; &nbsp;&nbsp;</strong></span></span></p>
+
+<p>&nbsp;</p>
+
+<p><span style="font-size:16px;"><span style="font-family:georgia;">The&nbsp;link for registration:&nbsp;&nbsp;<a data-saferedirecturl="https://www.google.com/url?q=https://zoom.us/webinar/register/1616776502909/WN_C4YzC7RpSaCZ1VAI_OX7Nw&amp;source=gmail&amp;ust=1677745918933000&amp;usg=AOvVaw13C3kCrlInbEadh4aN4tS0" href="http://sendy.eckmarket.in/l/hbaH763M17D9eDpzkr4lVzjg/EZMLV1bNO5AcHdeWZMwkOA/MwrM92hDr7G2nBecaXFuGQ" target="_blank"><b>Register Now</b></a></span></span></p>
+
+<p>&nbsp;</p>
+
+<p><span style="font-size:16px;"><span style="font-family:georgia;"><b>Regards,</b></span></span></p>
+
+<p><span style="font-size:16px;"><span style="font-family:georgia;"><b>Imarticus Learning</b></span></span></p>
+
+<hr />
+<center><span style="font-size:10px;">You are getting this mail because you have subscribed to receive these emails.<br />
+Check this mail-in <a href="http://sendy.eckmarket.in/w/hbaH763M17D9eDpzkr4lVzjg/BSM763409cgLNCzjChIr3C0g/MwrM92hDr7G2nBecaXFuGQ" >View web version</a>, If you don&rsquo;t wish to receive these emails, unsubscribe <a href="http://sendy.eckmarket.in/unsubscribe/ZNwDtwIl4f4QIg40cRuS9VO8h6COopMNzMYzwSZRAOo/BSM763409cgLNCzjChIr3C0g/MwrM92hDr7G2nBecaXFuGQ" >here.</a></span></center>
+</body>
+</html>
+<img src="http://sendy.eckmarket.in/t/MwrM92hDr7G2nBecaXFuGQ/hbaH763M17D9eDpzkr4lVzjg" alt="" style="width:1px;height:1px;"/>
+####################
