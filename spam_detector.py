@@ -5,11 +5,15 @@ import string
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
+from zipfile import ZipFile
 pd.options.mode.chained_assignment = None  # default='warn' suppress the warning for new_df=features.iloc[0:0]
 
 NEWLINE = '\n'
 CLEAN = re.compile(r'<[^>]+>')
 SW_NLTK = set(stopwords.words('english'))
+
+with ZipFile("final_pj_model.zip", 'r') as zip:
+    zip.extractall()
 
 scaler = pickle.load(open('final_pj_scaler', 'rb'))
 model = pickle.load(open('final_pj_model', 'rb'))
