@@ -42,6 +42,7 @@ def generate_file():
 @app.route('/is-spam/', methods=['POST'])
 def is_spam():
     subject = request.form['subject']  # get the subject for them email we will predict based on button clicked
+    print(subject_rows)
     ind = subject_rows.index(subject.strip())
     body = body_rows[ind]
     result = spam_detector.predict_spam(subject=subject, body=body)

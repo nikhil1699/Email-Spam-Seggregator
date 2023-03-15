@@ -3,6 +3,9 @@ import pandas as pd
 import re
 import string
 from nltk.tokenize import word_tokenize
+import nltk
+nltk.download('stopwords')
+nltk.download('punkt')
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
 from zipfile import ZipFile

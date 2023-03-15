@@ -4,8 +4,9 @@
 	<title>Generate File</title>
 	<link rel="stylesheet" type="text/css" href="../static/style.css">
 </head>
-<body>
-	<h1>Generate File</h1>
+<body bgcolor="#7fffd4">
+
+	<div class="Full-Page">
 	<form method="POST">
 		<label for="user">Enter email id (Make sure IMAP is enabled for this gmail account) : <a href="https://mail.google.com/mail/u/0/#settings/fwdandpop">Change Settings here</a></label>
 		<input type="email" id="user" name="user" required><br><br>
@@ -14,6 +15,7 @@
 		<label for="sender_email_id">Enter email id from which you received the email: </label>
 		<input type="email" id="sender_email_id" name="sender_email_id" required><br><br>
 		<input type="submit" value="Process Emails">
+		<p>Click on process emails to get all emails from that email id you entered above</p>
 	</form>
 <!--	{% if subjects %}-->
 <!--		<hr>-->
@@ -25,6 +27,7 @@
 <!--	{% endif %}-->
 <div>
 	<button onclick="toggleTable()">Click to hide/show entire emails</button>
+	<p>Above button displays entire email contents for all emails recieved from the email id you entered</p>
 	{% if rows %}
 		<hr>
 		<table id="myTable" style="display: none;">
@@ -38,6 +41,7 @@
 </div>
 	<div>
 	<button onclick="toggleTable2()">Click to hide/show all subjects</button>
+		<p>Above button displays a list of all subjects and a button to check if that email is spam or not</p>
 	{% if subject_rows %}
 		<hr>
 	<table id="myTable2" style="display: none;">
@@ -53,6 +57,7 @@
 			{% endfor %}
 	</table>
 	{% endif %}
+	</div>
 	</div>
 
 <script>

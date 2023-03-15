@@ -77,8 +77,8 @@ def collect_emails(user, password, sender_email_id):
                 except UnicodeEncodeError as e:
                     pass
 
-    print("Printing mails")
-    print(len(mails))
+    # print("Printing mails")
+    # print(len(mails))
     bodies = []
     subjects = []
     for mail in mails:
@@ -91,8 +91,8 @@ def collect_emails(user, password, sender_email_id):
                 bodies.append(part.get_payload())
         else:
             bodies.append(email.get_payload())
-        print(subjects)
-        print(bodies)
+        # print(subjects)
+        # print(bodies)
 
     with open(f"{sender_email_id}-emails", "w") as f:
         for item in mails:
