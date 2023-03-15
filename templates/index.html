@@ -45,7 +45,9 @@
 			{% for subject in subject_rows %}
 			<tr>
 				<br>
-				<td>{{ subject }} <button onclick="checkIfSpam()">Click to check if email with this subject is spam</button></td>
+                <form action="/is-spam/" method="post">
+                    <td>{{ subject }} <button type="submit" name="subject" value=' {{ subject }} '>Click to check if email with this subject is spam</button></td>
+                </form>
 				<br>
 			</tr>
 			{% endfor %}
@@ -70,6 +72,8 @@
       table.style.display = "none";
     }
   }
+
+
 </script>
 </body>
 </html>
