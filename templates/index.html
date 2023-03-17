@@ -32,16 +32,17 @@
 		<hr>
 		<table id="myTable" style="display: none;">
 			{% for row in rows %}
+
 			<tr>
-				<td>{{ row }}</td>
+				<td> Email Index {{ rows.index(row) }}<br>{{ row }}</td>
 			</tr>
 			{% endfor %}
 		</table>
 	{% endif %}
 </div>
+		<br><br>
 	<div>
-	<button onclick="toggleTable2()">Click to hide/show all subjects</button>
-		<p>Above button displays a list of all subjects and a button to check if that email is spam or not</p>
+	<button onclick="toggleTable2()">Click to hide/show all subjects, scroll down</button>
 	{% if subject_rows %}
 		<hr>
 	<table id="myTable2" style="display: none;">
@@ -50,7 +51,7 @@
 			<tr>
 				<br>
                 <form action="/is-spam/" method="post">
-                    <td>{{ subject }} <button type="submit" name="subject" value=' {{ subject }} '>Click to check if email with this subject is spam</button></td>
+                    <td>Subject for Email index {{ subject_rows.index(subject) }} {{ subject }} <button type="submit" name="subject" value=' {{ subject }} '>Click to check if email with this subject is spam</button></td>
                 </form>
 				<br>
 			</tr>

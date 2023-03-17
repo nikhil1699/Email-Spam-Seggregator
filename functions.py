@@ -1,6 +1,6 @@
 # Importing libraries
 import imaplib, email
-
+import pprint
 imap_url = 'imap.gmail.com'
 
 
@@ -85,23 +85,28 @@ def collect_emails(user, password, sender_email_id):
         from email.parser import Parser
         parser = Parser()
         email = parser.parsestr(mail)
-        subjects.append(email.get('Subject'))
+        #pprint.pprint(email)
+        #subjects.append(str(email.get('Subject')))
+        subjects.append(str(email.get('Subject')))
         if email.is_multipart():
             for part in email.get_payload():
-                bodies.append(part.get_payload())
+                bodies.append(str(part.get_payload()))
         else:
-            bodies.append(email.get_payload())
-        # print(subjects)
-        # print(bodies)
+            bodies.append(str(email.get_payload()))
+        #bodies.append(email.get_payload())
+    print(len(subjects))
+    print(len(bodies))
 
     with open(f"{sender_email_id}-emails", "w") as f:
         for item in mails:
+            print(type(item))
             f.write(item + "\n")
             f.write(f"####################")
 
     with open(f"{sender_email_id}-bodies", "w") as f:
         for body in bodies:
-            f.write(body + "\n")
+            print(type(body))
+            f.write(body+ "\n")
             f.write(f"####################")
 
     with open(f"{sender_email_id}-subjects", "w") as f:
